@@ -2,9 +2,9 @@ IMAGE := kernel.elf
 
 CROSS_COMPILE = aarch64-linux-gnu-
 
-CC = $(CROSS_COMPILE)gcc
-LD = $(CROSS_COMPILE)ld
-OBJDUMP = $(CROSS_COMPILE)objdump
+CC = clang -target aarch64-linux-gnu
+LD = ld.lld 
+OBJDUMP = llvm-objdump --arch-name=aarch64
 
 CFLAGS = -Wall -fno-common -O0 -g \
          -nostdlib -nostartfiles -ffreestanding \
